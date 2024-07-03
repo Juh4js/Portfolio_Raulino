@@ -1,0 +1,45 @@
+.projetos{
+    width: 100%;
+    height: fit-content;
+    //border: 3px #5eafe6 solid;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas com largura igual */
+    grid-template-rows: repeat(2, 1fr); /* 2 linhas com altura igual */
+    gap: 10px; /* Espaçamento entre as células */
+    width: 100%; /* Altura fixa para manter o layout estável */
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas com largura igual */
+    grid-template-rows: repeat(2, 1fr); /* 2 linhas com altura igual */
+    gap: 24px; /* Espaçamento entre as células */
+    margin: 0; /* Margem zero para eliminar qualquer margem padrão */
+    padding: 0; /* Preenchimento zero para eliminar qualquer preenchimento padrão */
+  }
+  
+  .grid-item {
+    border: 3px solid #5eafe6;
+    padding: 10px; 
+  }
+  
+  .grid-item img {
+    width: 100%; /* Imagem ocupando 100% do espaço do item */
+    height: 70%; /* Altura automática, mantendo proporções */
+  }
+  
+  .grid-item p {
+    margin: 10px 0 0; /* Margem superior para separar a descrição */
+    font-size: 14px; /* Tamanho da fonte da descrição */
+    color: #666; /* Cor do texto da descrição */
+  }
+  
+  
+
+  
+  
