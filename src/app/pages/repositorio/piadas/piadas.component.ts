@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { ApiChuckNorrisService } from '../../../services/api-chuck-norris.service';
+import { TradutorService } from '../../../services/tradutor.service';
+import { PiadaAleatorioService } from '../../../services/piada-aleatorio.service';
+
 
 type Piada = {
   piada_ingles:string,
@@ -21,4 +25,44 @@ export class PiadasComponent {
     piada_portugues:'Clique em um botão para receber uma piada'
   }
 
+  constructor(
+    private chuckNorrisService:ApiChuckNorrisService,
+    private tradutorService:TradutorService,
+    private piadaAleatoriaService:PiadaAleatorioService
+  ){
+
+  }
+
+  buscaPiadaChuckNorris(){
+    this.chuckNorrisService.buscaPiada().subscribe({
+      next:(resposta)=>{
+        this.piada.piada_ingles = resposta.value;
+        this.traduzPiada(resposta.value,'en','pt');
+      }
+    })
+  }
+
+  buscaPiadaAleatoria(){
+    this.piadaAleatoriaService.buscaPiada().subscribe({
+      next:(resposta)=>{
+        this.piada.piada_ingles = resposta.setup+resposta.punchline;
+        this.traduzPiada(resposta.setup+resposta.punchline,'en','pt');
+      }
+    })
+  }
+
+  buscaPiadaProgramador(){
+    
+  }
+
+  traduzPiada(piada:string,origem:string,destino:string){
+    this.tradutorService.traduzir(piada,origem,destino).subscribe({
+     next:(resposta)=>{
+      this.piada.piada_portugues = resposta
+
+      }
+
+    })
+
+  }
 }
